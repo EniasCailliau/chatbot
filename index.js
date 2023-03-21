@@ -78,7 +78,7 @@ chat.style.overflow = 'hidden'
 document.body.appendChild(chat)
 
 chat.innerHTML = `<iframe
-src="https://www.chatbase.co/chatbot-iframe/${scriptTag.id}"
+src="${scriptTag.url}"
 width="100%"
 height="100%"
 frameborder="0"
@@ -102,18 +102,7 @@ mediaQuery.addEventListener('change', handleChatWindowSizeChange)
 handleChatWindowSizeChange(mediaQuery)
 
 const getChatButtonColor = async () => {
-  const response = await fetch(
-    `https://www.chatbase.co/api/get-chatbot-button-color?chatbotId=${scriptTag.id}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  )
-
-  const data = await response.json()
-  chatButton.style.backgroundColor = data.color || CHAT_BUTTON_BACKGROUND_COLOR
+  chatButton.style.backgroundColor = CHAT_BUTTON_BACKGROUND_COLOR
   document.body.appendChild(chatButton)
 }
 
