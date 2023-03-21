@@ -78,7 +78,7 @@ chat.style.overflow = 'hidden'
 document.body.appendChild(chat)
 
 chat.innerHTML = `<iframe
-src="${scriptTag.url}"
+src="${scriptTag.id}"
 width="100%"
 height="100%"
 frameborder="0"
